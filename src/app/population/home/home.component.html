@@ -1,7 +1,7 @@
-<h4 class="title-bar">All Statistics</h4>
+<div class="title-bar">All Statistics</div>
 <div style="padding: 2%;">
     <div style="margin: 2%;">Access the entire database here</div>
-    <div style="margin: 2%;">{{ displayPath }}</div>
+    <div style="margin: 2%;">Path: {{ displayPath }}</div>
     <ng-container *ngIf="allCategories | async as all;">
 
         <select *ngIf="!all.title" [formControl]="field" (change)="changeNode($event.target.value)">
