@@ -49,7 +49,8 @@ export class EnvironmentService {
       format: 'json',
     },
   };
-  enviUrl = 'http://api.scb.se/OV0104/v1/doris/en/ssd/MI/MI0107/TotaltUtslappN';
+  enviUrl =
+    'https://api.scb.se/OV0104/v1/doris/en/ssd/MI/MI0107/TotaltUtslappN';
   constructor() {}
   async getSpecificData() {
     try {

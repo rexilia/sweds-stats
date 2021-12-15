@@ -1,4 +1,13 @@
 {
+  "targets": {
+    "sweds-stats": {
+      "hosting": {
+        "surf-war": [
+          "sweds-stats"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "sweds-stats"
   }

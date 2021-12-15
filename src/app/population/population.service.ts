@@ -10,7 +10,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 export class PopulationService {
   constructor(private http: HttpClient) {}
 
-  genericUrl = 'http://api.scb.se/OV0104/v1/doris/en/ssd';
+  genericUrl = 'https://api.scb.se/OV0104/v1/doris/en/ssd';
   data = {
     query: [
       {

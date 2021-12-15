@@ -38,5 +38,9 @@
                 </tr>
             </ng-container>
         </table>
+        <ng-container *ngIf="data.metadata[0] as meta">
+            <div style="margin-top: 2%;">Last updated at: {{ meta.updated }}</div>
+            <div>Source: {{ meta.source }}</div>
+        </ng-container>
     </ng-container>
 </div>

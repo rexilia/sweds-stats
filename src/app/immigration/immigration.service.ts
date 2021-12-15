@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ImmigrationService {
   migrationUrl =
-    'http://api.scb.se/OV0104/v1/doris/en/ssd/BE/BE0101/BE0101J/ImmiEmiMedb';
+    'https://api.scb.se/OV0104/v1/doris/en/ssd/BE/BE0101/BE0101J/ImmiEmiMedb';
   dataImmi = {
     query: [
       {
