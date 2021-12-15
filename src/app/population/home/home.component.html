@@ -1,0 +1,42 @@
+<h4 class="title-bar">All Statistics</h4>
+<div style="padding: 2%;">
+    <div style="margin: 2%;">Access the entire database here</div>
+    <div style="margin: 2%;">{{ displayPath }}</div>
+    <ng-container *ngIf="allCategories | async as all;">
+
+        <select *ngIf="!all.title" [formControl]="field" (change)="changeNode($event.target.value)">
+            <option>Select</option>
+            <option *ngFor="let node of all;" [value]="node.id+'/'+node.text">{{ node.text }}</option>
+        </select>
+        <ng-conatiner *ngIf="all.title">
+            <div class="all-options" *ngFor="let node of all.variables;let ind = index;">
+                <div>
+                    <div>{{ node.text | titlecase }}*</div>
+                    <select (change)="changeLeaf($event.target.value,node.code,ind)" formControlName="field">
+                        <option>Select</option>
+                        <option name="options" *ngFor="let value of node.values;let i = index"
+                            [value]="value+'/'+node.valueTexts[i]" [id]="node.valueTexts[i]" required>{{
+                            node.valueTexts[i] }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="button" (click)="generateQuery()">Submit</div>
+        </ng-conatiner>
+    </ng-container>
+    <ng-container *ngIf="specificCategories | async as data;">
+        <table>
+            <ng-container *ngFor="let data of data.columns;">
+                <th>{{ data.text | titlecase}}</th>
+            </ng-container>
+            <ng-container *ngFor="let value of data.data;">
+                <tr>
+                    <ng-container *ngFor="let key of queryTemplate;">
+                        <td *ngIf="key != value.values[0]">{{ key.name | titlecase}}</td>
+                    </ng-container>
+                    <td>{{ value.values[0] }}</td>
+                </tr>
+            </ng-container>
+        </table>
+    </ng-container>
+</div>

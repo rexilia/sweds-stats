@@ -1,0 +1,15 @@
+<div class="entire">
+    <div class="left-menu">
+        <div style="display: flex;margin-bottom: 10%;">
+            <img src="/assets/icons/sweden.png" style="width: 30px;height: 30px;">
+            <h3 style="font-weight: bolder;margin: 1%;">Swedish Statistics</h3>
+        </div>
+        <ng-container *ngFor="let link of links;">
+            <h4 style="font-weight:bold;" routerLinkActive='link' [routerLink]="link.route">{{
+                link.option }}</h4>
+        </ng-container>
+    </div>
+    <div class="right-side">
+        <router-outlet></router-outlet>
+    </div>
+</div>

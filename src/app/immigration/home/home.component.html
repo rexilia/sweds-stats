@@ -1,0 +1,37 @@
+<div class="title-bar">Migration</div>
+<div style="overflow-y: scroll;padding: 2%;">
+    <div style="font-weight: 500;margin-bottom: 1%;">Immigration from India</div>
+    <ng-container *ngIf="immigration | async as data;">
+        <table style="height: 50px;">
+            <ng-container *ngFor="let data of data.columns;">
+                <th>{{ data.text | titlecase}}</th>
+            </ng-container>
+            <ng-container *ngFor="let value of data.data;">
+                <tr>
+                    <ng-container *ngFor="let key of queryTemplate;">
+                        <td *ngIf="key != value.values[0]">{{ key.name | titlecase}}</td>
+                    </ng-container>
+                    <td>{{ value.key[2] }}</td>
+                    <td>{{ value.values[0] }}</td>
+                </tr>
+            </ng-container>
+        </table>
+    </ng-container>
+    <div style="font-weight: 500;margin-bottom: 1%; margin-top: 2%;">Emmigration from India</div>
+    <ng-container *ngIf="emmigration | async as data;">
+        <table style="height: 50px;">
+            <ng-container *ngFor="let data of data.columns;">
+                <th>{{ data.text | titlecase}}</th>
+            </ng-container>
+            <ng-container *ngFor="let value of data.data;">
+                <tr>
+                    <ng-container *ngFor="let key of queryTemplate;">
+                        <td *ngIf="key != value.values[0]">{{ key.name | titlecase}}</td>
+                    </ng-container>
+                    <td>{{ value.key[2] }}</td>
+                    <td>{{ value.values[0] }}</td>
+                </tr>
+            </ng-container>
+        </table>
+    </ng-container>
+</div>
